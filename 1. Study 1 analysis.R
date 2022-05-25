@@ -89,7 +89,7 @@ bayestestR::bf_models(step0,step1, denominator = 1, verbose = TRUE)
 #hypothesis 2: Sleep deprivation leads to an increase in state anxiety
 step2 <- brm(state_anxiety_score_zscore ~ sd, data = S1_STAI_dataset,save_pars = save_pars(all = TRUE), prior = priors,iter=40000, chains = 8, cores = 8)
 bayestestR::bf_models(step0,step2, denominator = 1, verbose = TRUE)
-#hypothesis 3: Trait anxiety does not predict the effect of sleep restriction on state anxiety.
+#hypothesis 3: Trait anxiety does not predict the effect of sleep deprivation on state anxiety.
 step3 <- brm(state_anxiety_score_zscore ~ sd + trait_anxiety_score_zscore, data = S1_STAI_dataset, save_pars = save_pars(all = TRUE), prior = priors,iter=40000, chains = 8, cores = 8)
 step4 <- brm(state_anxiety_score_zscore ~ sd*trait_anxiety_score_zscore, data = S1_STAI_dataset, save_pars = save_pars(all = TRUE), prior = priors, iter=40000, chains = 8, cores = 8)
 
